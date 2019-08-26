@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "author": "Coding Sprint MGMWRX 2019",
+  "license": "GPL-3.0-or-later",
+  "name": "webhost",
+  "description": "Web Host Server for Whats Up",
+  "scripts": {
+    "test": "mocha -r ts-node/register --bail ./test/**/*Test.ts",
+    "build": "tsc --project .",
+    "prepublish": "npm run build",
+    "start": "nodemon -V dist/bin/main.js"
+  },
+  "bin": "dist/bin/main.js",
+  "main": "dist/lib/app.js",
+  "devDependencies": {
+    "@types/chai": "^4.2.0",
+    "@types/express": "^4.17.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.2",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.1",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.19.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
