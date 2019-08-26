@@ -1,7 +1,17 @@
 import express from "express";
+import api from "./routes/api";
+import homepage from "./staticPages/staticPage";
+import Cache from "./model/cache";
+
+const cache = new Cache();
 
 const app = express();
 app.use(express.json());
+
+app.use("/api/", api(cache));
+app.use("/", (_req, res) => {
+  res.send(homepage());
+});
 
 app.use((_req, _res, next) => {
   next(404);

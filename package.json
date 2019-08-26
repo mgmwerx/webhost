@@ -4,10 +4,12 @@
   "license": "GPL-3.0-or-later",
   "name": "webhost",
   "description": "Web Host Server for Whats Up",
+  "repository": {
+    "url": "https://github.com/mgmwerx/webhost.git"
+  },
   "scripts": {
     "test": "mocha -r ts-node/register --bail ./test/**/*Test.ts",
-    "build": "tsc --project .",
-    "prepublish": "npm run build",
+    "build": "tsc --watch --project .",
     "start": "nodemon -V dist/bin/main.js"
   },
   "bin": "dist/bin/main.js",
