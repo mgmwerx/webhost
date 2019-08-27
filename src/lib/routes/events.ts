@@ -1,7 +1,7 @@
 import { Router } from "express";
-import Cache from "../model/cache";
+import EventCache from "../model/EventCache";
 
-export default (cache: Cache) => {
+export default (cache: EventCache) => {
   const route = Router();
   route.get("/", (req, res) => {
     const from = parseInt(req.query.from, 10);
