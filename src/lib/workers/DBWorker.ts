@@ -20,7 +20,6 @@ export default class {
       try {
         this.cache.setData(await this.driver.getData());
       } catch (e) {
-        console.log(e);
         process.stderr.write(`${new Date().toISOString()}: No updates to cache\n`);
       }
     }, interval);
