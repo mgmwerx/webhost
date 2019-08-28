@@ -6,8 +6,10 @@ export default class {
   private handle: NodeJS.Timeout | null;
   private cache: EventCache;
   private driver: { getData: () => Promise<IEventData[]> };
+  private cacheGood: boolean;
 
   constructor(cache: EventCache, driver: { getData: () => Promise<IEventData[]> }) {
+    this.cacheGood = false;
     this.handle = null;
     this.cache = cache;
     this.driver = driver;
@@ -19,9 +21,15 @@ export default class {
     this.handle = setInterval(async () => {
       try {
         this.cache.setData(await this.driver.getData());
-        process.stdout.write(`${new Date().toISOString()}: Cache updated\n`);
+        if (!this.cacheGood) {
+          process.stdout.write(`${new Date().toISOString()}: Cache updating successfully\n`);
+          this.cacheGood = true;
+        }
       } catch (e) {
-        process.stderr.write(`${new Date().toISOString()}: No updates to cache\n`);
+        if (this.cacheGood) {
+          process.stderr.write(`${new Date().toISOString()}: Failing to update cache\n`);
+          this.cacheGood = false;
+        }
       }
     }, interval);
   }
