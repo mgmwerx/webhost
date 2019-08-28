@@ -4,7 +4,7 @@ import * as http from "http";
 import app from "../lib/app";
 import { AddressInfo } from "net";
 
-const port = 80;
+const port = 8080;
 app.set("port", port);
 const server = http.createServer(app);
 
