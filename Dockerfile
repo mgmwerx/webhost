@@ -1,4 +1,5 @@
 FROM node:10
+RUN mkdir /app
 WORKDIR /app
 COPY ./package.json ./package.json
 COPY ./package-lock.json ./package-lock.json
@@ -7,6 +8,7 @@ COPY . .
 RUN npx tsc --project .
 
 FROM node:10
+RUN mkdir /app
 WORKDIR /app
 COPY --from=0 /app/package.json .
 COPY --from=0 /app/package-lock.json .
