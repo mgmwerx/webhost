@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "author": "Coding Sprint MGMWRX 2019",
-  "license": "GPL-3.0-or-later",
   "name": "webhost",
   "description": "Web Host Server for Whats Up",
   "repository": {
