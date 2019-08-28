@@ -19,6 +19,7 @@ export default class {
     this.handle = setInterval(async () => {
       try {
         this.cache.setData(await this.driver.getData());
+        process.stdout.write(`${new Date().toISOString()}: Cache updated\n`);
       } catch (e) {
         process.stderr.write(`${new Date().toISOString()}: No updates to cache\n`);
       }

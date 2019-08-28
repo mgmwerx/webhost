@@ -8,7 +8,7 @@ import PostgresDriver from "./workers/postgresDriver";
 const cache = new EventCache();
 const driver = new PostgresDriver();
 const worker = new DBWorker(cache, driver);
-worker.startWorker(60000);
+worker.startWorker(10000);
 
 const app = express();
 app.use(express.json());
